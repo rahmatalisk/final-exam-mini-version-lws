@@ -64,9 +64,12 @@ const LeaderBoard = () => {
   //get all students
   const allStudents = users?.filter((u) => u?.role === "student");
 
-  if (!user) {
-    allStudents?.push(userInfo?.user);
+  if (userInfo?.user?.name) {
+    if (!user) {
+      allStudents?.push(userInfo?.user);
+    }
   }
+
   // combine user and quiz
   const allUsersQuiz = [];
   allStudents?.map((dt) => {
@@ -169,7 +172,7 @@ const LeaderBoard = () => {
   return (
     <>
       <Header />
-      <ToastContainer/>
+      <ToastContainer />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div>
@@ -192,7 +195,9 @@ const LeaderBoard = () => {
                     {findUserMark?.rank ? findUserMark?.rank : 0}
                   </td>
                   <td className="table-td text-center font-bold">
-                    {user?.name ? user?.name :"user name"}
+                    {findUserMark?.assignment?.student_name
+                      ? findUserMark?.assignment?.student_name
+                      : "user name"}
                   </td>
                   <td className="table-td text-center font-bold">
                     {findUserMark?.assignment?.quizMark
