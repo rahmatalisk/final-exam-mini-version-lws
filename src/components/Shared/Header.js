@@ -27,7 +27,7 @@ const Header = () => {
           <Link to="/leader-board" className="font-bold">
             Leaderboard
           </Link>
-          <h2>{userInfo?.user?.name}</h2>
+          <h2>{userInfo?.user?.name ? userInfo?.user?.name :"Student"}</h2>
           <button
             onClick={handleLogout}
             className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
