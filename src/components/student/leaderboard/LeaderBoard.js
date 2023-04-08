@@ -71,15 +71,15 @@ const LeaderBoard = () => {
   const allUsersQuiz = [];
   allStudents?.map((dt) => {
     const findIngQuiz = filterByStudentIdQuizMark?.find(
-      (d) => d?.student_id === dt.id
+      (d) => d?.student_id === dt?.id
     );
     let quizMark = findIngQuiz?.quizMark;
     if (!quizMark) {
       quizMark = 0;
     }
     const updateData = {
-      student_id: dt.id,
-      student_name: dt.name,
+      student_id: dt?.id,
+      student_name: dt?.name,
       quizMark,
     };
     allUsersQuiz.push(updateData);
@@ -100,8 +100,8 @@ const LeaderBoard = () => {
       assignmentMark = 0;
     }
     const updateData = {
-      student_id: dt.student_id,
-      student_name: dt.student_name,
+      student_id: dt?.student_id,
+      student_name: dt?.student_name,
       quizMark,
       assignmentMark,
       totalMark: assignmentMark + quizMark,
@@ -192,7 +192,7 @@ const LeaderBoard = () => {
                     {findUserMark?.rank ? findUserMark?.rank : 0}
                   </td>
                   <td className="table-td text-center font-bold">
-                    {user?.name}
+                    {user?.name ? user?.name :"user name"}
                   </td>
                   <td className="table-td text-center font-bold">
                     {findUserMark?.assignment?.quizMark
